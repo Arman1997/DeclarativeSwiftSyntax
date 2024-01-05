@@ -3,10 +3,28 @@ import XCTest
 
 final class DeclarativeSwiftSyntaxTests: XCTestCase {
     func testExample() throws {
-        // XCTest Documentation
-        // https://developer.apple.com/documentation/xctest
-
-        // Defining Test Cases and Test Methods
-        // https://developer.apple.com/documentation/xctest/defining_test_cases_and_test_methods
+        let drivenViewBody = """
+        class Greetings: DrivenView {
+            var drivenBody: View {
+                return Text("Hello world")
+            }
+        }
+        """
+            .asSyntax
+            .classDeclarations()
+            .filter {
+                $0.inheritedTypes.contains(.init("DrivenView"))
+            }
+            .compactMap {
+                $0
+                    .computedVariableDeclarations()
+                    .filter {
+                        $0.name == "drivenBody"
+                    }
+                    .first
+            }
+            .first
+        
+        XCTAssertNotNil(drivenViewBody)
     }
 }
