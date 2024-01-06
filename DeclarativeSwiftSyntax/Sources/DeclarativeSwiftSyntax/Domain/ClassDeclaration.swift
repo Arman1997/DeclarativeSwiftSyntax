@@ -38,3 +38,23 @@ public struct ClassDeclaration: ClassDeclarationContaining, ComputedVariableDecl
         self.declarationBodySyntax.computedVariableDeclarations()
     }
 }
+
+
+public extension ClassDeclaration {
+    func isSubtype<T>(of type: T.Type) -> Bool {
+        inheritedTypes
+            .contains(
+                TypeIdentifier(
+                    String(
+                        describing: type
+                    )
+                )
+            )
+    }
+    
+    func isSuperType(of otherClassDeclaration: ClassDeclaration) -> Bool {
+        otherClassDeclaration
+            .inheritedTypes
+            .contains(TypeIdentifier(name))
+    }
+}
