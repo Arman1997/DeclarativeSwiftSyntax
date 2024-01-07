@@ -8,7 +8,7 @@ Declarative API for Swift code static analyze.
 
 
 
-This aim of this library is to provide a user-friendly API for analyzing Swift code. Primarily employed in conjunction with my other repositories, [DrivenCLI]() and [Driven](https://github.com/Arman1997/Driven), its functionality is tailored to meet their specific requirements.
+This aim of this library is to provide a user-friendly API for analyzing Swift code. Primarily employed in conjunction with my other repositories, [DrivenCLI](https://github.com/Arman1997/DrivenCLI) and [Driven](https://github.com/Arman1997/Driven), its functionality is tailored to meet their specific requirements.
 
 ### Example of usage
 
