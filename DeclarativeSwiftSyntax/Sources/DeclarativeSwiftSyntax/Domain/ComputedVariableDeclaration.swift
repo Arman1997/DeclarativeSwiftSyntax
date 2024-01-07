@@ -3,7 +3,7 @@ import SwiftSyntax
 public struct ComputedVariableDeclaration: ClassDeclarationContaining, ComputedVariableDeclarationContaining {
     public let name: String
     public let accessModifier: AccessModifier
-    
+
     private let declarationBodySyntax: Syntax
     
     internal init?(_ variableDec: VariableDeclSyntax) {
