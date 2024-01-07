@@ -8,12 +8,13 @@ Declarative API for Swift code static analyze.
 
 
 
+This aim of this library is to provide a user-friendly API for analyzing Swift code. Primarily employed in conjunction with my other repositories, [DrivenCLI]() and [Driven](https://github.com/Arman1997/Driven), its functionality is tailored to meet their specific requirements.
+
 ### Example of usage
 
 #### Extracting class declarations.
 
 ```swift
-
 class ParentClass {
     
 }
@@ -32,25 +33,25 @@ public final class ChildClass: ParentClass {
 #### Filtering with access modifier.
 
 ```swift
-    .asSyntax
-    .classDeclarations()
-    .map(\.accessModifier)
-    .filter { $0 == .private }
+.asSyntax
+.classDeclarations()
+.map(\.accessModifier)
+.filter { $0 == .private }
 ```
 
 #### Extracting computed variable declarations.
 
 ```swift
-    .asSyntax
-    .computedVariableDeclarations()
+.asSyntax
+.computedVariableDeclarations()
 ```
 
 #### Extracting computed variables declared in each class.
 
 ```swift
-    .asSyntax
-    .classDeclarations()
-    .map {
-        $0.computedVariableDeclarations()
-    }
+.asSyntax
+.classDeclarations()
+.map {
+    $0.computedVariableDeclarations()
+}
 ```
