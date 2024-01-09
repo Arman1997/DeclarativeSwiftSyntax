@@ -15,12 +15,16 @@ public struct ComputedVariableDeclaration: ClassDeclarationContaining, ComputedV
             .as(IdentifierPatternSyntax.self),
            let accessorBlock = patternBinding.accessorBlock {
             self.name = pattern.identifier.text
-            self.declarationBodySyntax = accessorBlock._syntaxNode
+            self.declarationBodySyntax = accessorBlock.accessors._syntaxNode
         } else {
             return nil
         }
 
         self.accessModifier = AccessModifier(variableDec.modifiers)
+    }
+    
+    public var description: String {
+        declarationBodySyntax.description //String(cString: declarationBodySyntax.syntaxTextBytes + [0])
     }
 
     public func classDeclarations() -> [ClassDeclaration] {
